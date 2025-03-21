@@ -32,7 +32,21 @@ public class Professor {
         return disciplinas;
     }
 
-    public void vincularProfessor(Disciplina disciplina){
+    public void vincularDisciplina(Disciplina disciplina){
         this.disciplinas.add(disciplina);
+    }
+
+    public void printarDisciplinas(){
+        System.out.print("Disciplinas de professor(a) " + this.nome + ":\n");
+        for(Disciplina disciplina : this.disciplinas){
+            System.out.println(disciplina.getNome());
+        }
+    }
+
+    public void printarHorarios(){
+        System.out.print("Horarios de professor(a) " + this.nome + ":\n");
+        for(Disciplina disciplina : this.disciplinas){
+            System.out.print(disciplina.getNome() + " -> " + disciplina.getHorario().toString() + "\n");
+        }
     }
 }
