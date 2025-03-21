@@ -1,8 +1,8 @@
 package utils.enums;
 
-public enum Dia {
+public enum Dias {
    SEGUNDA,
-   TERÇA,
+   TERCA,
    QUARTA,
    QUINTA,
    SEXTA
