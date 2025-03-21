@@ -1,22 +1,22 @@
 package entitys;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import entitys.*;
-import entitys.utils.*;
+import utils.*;
 
 public class Disciplina {
     private String nome;
     private Professor professor;
     private ArrayList<Aluno> alunos;
-    private HashMap<Dias, Horas> horario;
+    private Horario horario;
     
-    public Disciplina(String nome, Professor professor, HashMap<Dias, Horas> horario) {
+    public Disciplina(String nome, Professor professor, Horario horario) {
         this.nome = nome;
         this.professor = professor;
-        this.alunos = new ArrayList<Aluno>();     
-        this.horario = horario;   
+        this.horario = horario;
+        this.alunos = new ArrayList<Aluno>();
+            
     }    
 
     public String getNome() {
@@ -25,8 +25,11 @@ public class Disciplina {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    public void setHorario(Horario horario){
+        this.horario = horario;
+    }
 
-    public String getHorario() {
+    public Horario getHorario() {
         return horario;
     }
     public Professor getProfessor() {
@@ -40,7 +43,7 @@ public class Disciplina {
         return alunos;
     }
 
-    public void adicionarAluno(Aluno aluno) {
+    public void matricularAluno(Aluno aluno) {
         this.alunos.add(aluno);
     }
 
