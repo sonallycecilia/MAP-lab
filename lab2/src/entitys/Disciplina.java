@@ -53,7 +53,7 @@ public class Disciplina {
         this.alunos.add(aluno);
     }
 
-    // geral
+    // metodos
     public int qtdDeAlunos(){
         return alunos.size();
     }
