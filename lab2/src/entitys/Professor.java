@@ -19,7 +19,20 @@ public class Professor {
     public int getMatricula(){
         return matricula;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
+
+    public ArrayList<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
     public void vincularProfessor(Disciplina disciplina){
-        disciplinas.add(disciplina);
+        this.disciplinas.add(disciplina);
     }
 }
