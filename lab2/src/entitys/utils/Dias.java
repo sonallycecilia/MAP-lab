@@ -1,6 +1,6 @@
-package utils.enums;
+package entitys.utils;
 
-public enum Dia {
+public enum Dias {
    SEGUNDA,
    TERÇA,
    QUARTA,
