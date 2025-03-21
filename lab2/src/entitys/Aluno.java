@@ -8,6 +8,7 @@ public class Aluno {
     private int cra;
     private ArrayList<Disciplina> disciplinas;
 
+    // construtores
     public Aluno (String nome, int matricula){
         this.nome = nome;
         this.matricula = matricula;
@@ -28,6 +29,7 @@ public class Aluno {
         return disciplinas;
     }
 
+    // setters
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -38,6 +40,7 @@ public class Aluno {
         this.cra = cra;
     }
 
+    // metodos
     public void vincularDisciplina(Disciplina disciplina){
         this.disciplinas.add(disciplina);
     }
