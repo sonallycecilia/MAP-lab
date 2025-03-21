@@ -1,29 +1,34 @@
 package utils;
 
-import utils.enums.Dias;
+import utils.enums.*;
 
 public class Horario {
-    private Dias dia;
-    private String hora;
-    
-    public Horario(Dias dia, String hora) {
+    private Dia dia;
+    private Hora hora;
+
+    // construtores
+    public Horario(Dia dia, Hora hora) {
         this.dia = dia;
         this.hora = hora;
     }
 
-    public Dias getDia() {
+    // getters
+    public Dia getDia() {
         return dia;
     }
-    public void setDia(Dias dia) {
-        this.dia = dia;
-    }
-    public String getHora() {
+    public Hora getHora() {
         return hora;
+    }
+
+    // setters
+    public void setDia(Dia dia) {
+        this.dia = dia;
     }
     public void setHora(String hora) {
         this.hora = hora;
     }
 
+    // metodos
     @Override
     public String toString(){
         return "Dia: "+ dia + " as " + hora + " horas";
