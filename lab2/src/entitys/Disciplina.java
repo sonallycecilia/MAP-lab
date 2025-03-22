@@ -9,20 +9,20 @@ public class Disciplina {
     private Professor professor;
     private ArrayList<Aluno> alunos;
     private Horario horario;
-    
+
     // construtores
     public Disciplina(String nome, Horario horario) {
         this.nome = nome;
         this.horario = horario;
         this.alunos = new ArrayList<Aluno>();
-    } 
+    }
 
     public Disciplina(String nome, Professor professor, Horario horario) {
         this.nome = nome;
         this.professor = professor;
         this.horario = horario;
         this.alunos = new ArrayList<Aluno>();
-    }     
+    }
 
     // getters
     public String getNome() {
@@ -49,11 +49,8 @@ public class Disciplina {
     public void setHorario(Horario horario){
         this.horario = horario;
     }
-    public void matricularAluno(Aluno aluno) {
-        this.alunos.add(aluno);
-    }
 
-    // metodos
+    // geral
     public int qtdDeAlunos(){
         return alunos.size();
     }
@@ -62,6 +59,9 @@ public class Disciplina {
         for(Aluno aluno : this.alunos){
             System.out.println(aluno.getNome());
         }
+    }
+    public void matricularAluno(Aluno aluno) {
+        this.alunos.add(aluno);
     }
 
 }
