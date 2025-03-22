@@ -4,10 +4,10 @@ import utils.enums.*;
 
 public class Horario {
     private Dia dia;
-    private Hora hora;
+    private HoraAula hora;
 
     // construtores
-    public Horario(Dia dia, Hora hora) {
+    public Horario(Dia dia, HoraAula hora) {
         this.dia = dia;
         this.hora = hora;
     }
@@ -16,7 +16,7 @@ public class Horario {
     public Dia getDia() {
         return dia;
     }
-    public Hora getHora() {
+    public HoraAula getHora() {
         return hora;
     }
 
@@ -24,7 +24,7 @@ public class Horario {
     public void setDia(Dia dia) {
         this.dia = dia;
     }
-    public void setHora(String hora) {
+    public void setHora(HoraAula hora) {
         this.hora = hora;
     }
 

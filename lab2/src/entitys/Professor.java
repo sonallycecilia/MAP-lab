@@ -21,6 +21,9 @@ public class Professor {
     public int getMatricula(){
         return matricula;
     }
+    public ArrayList<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
 
     // setters
     public void setNome(String nome) {
@@ -29,14 +32,12 @@ public class Professor {
     public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
-    public ArrayList<Disciplina> getDisciplinas() {
-        return disciplinas;
-    }
+
+    // metodos
     public void vincularDisciplina(Disciplina disciplina){
         this.disciplinas.add(disciplina);
     }
 
-    // metodos
     public void printarDisciplinas(){
         System.out.print("Disciplinas de professor(a) " + this.nome + ":\n");
         for(Disciplina disciplina : this.disciplinas){
