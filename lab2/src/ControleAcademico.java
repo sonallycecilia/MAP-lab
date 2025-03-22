@@ -1,6 +1,6 @@
 import entitys.*;
 import utils.*;
-import utils.enums.Dia;
+import utils.enums.*;
 
 public class ControleAcademico {
     public static void main(String[] args) throws Exception {
@@ -14,12 +14,11 @@ public class ControleAcademico {
 
         Disciplina disciplina1 = new Disciplina(disciplinasOfertadas[0],
                                                 professor1, 
-                                                new Horario(Dia.QUINTA, "11:00"));
+                                                new Horario(Dia.QUINTA, HoraAula._07_09));
         professor1.vincularDisciplina(disciplina1);
         
         disciplina1.matricularAluno(aluno1);
         aluno1.vincularDisciplina(disciplina1);
-
 
         professor1.printarDisciplinas();
         professor1.printarHorarios();
