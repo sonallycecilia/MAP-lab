@@ -1,9 +1,5 @@
 package entitys;
 
-import java.util.ArrayList;
-
-import utils.*;
-
 public class Disciplina {
     private String nome;
     private String ementa;
