@@ -1,20 +1,23 @@
 package entitys;
 
+import utils.Horario;
+import utils.enums.Dia;
+import utils.enums.HoraAula;
+
 import java.util.ArrayList;
 
 public class Turma {
     private Disciplina disciplina;
     private Professor professor;
     private ArrayList<Aluno> alunosMatriculados;
-    private String periodo;
-    private String turno;
+    private Horario horario;
 
-    public Turma(Disciplina disciplina, Professor professor, String periodo, String turno) {
+    // A classe Horario deve ser instanciada ao criar uma turma? Ou deve ser definido posteriormente?
+    public Turma(Disciplina disciplina, Professor professor, Dia dia, HoraAula horaAula) {
         this.disciplina = disciplina;
         this.professor = professor;
-        this.periodo = periodo;
-        this.turno = turno;
         this.alunosMatriculados = new ArrayList<>();
+        this.horario = new Horario(dia, horaAula);
     }
 
     public Disciplina getDisciplina() {
@@ -37,28 +40,18 @@ public class Turma {
         this.professor = professor;
     }
 
-    public String getTurno() {
-        return turno;
-    }
+    // metodos
 
-    public void setTurno(String turno) {
-        this.turno = turno;
-    }
-
-    public String getPeriodo() {
-        return periodo;
-    }
-
-    public void setPeriodo(String periodo) {
-        this.periodo = periodo;
-    }
-
-    //metodos
-    public Boolean matricularAluno(Aluno aluno) {
-        return this.alunosMatriculados.add(aluno);
-    }
-
+    // Essa responsabilidade deve ser da Turma ou de ControleAcademico?
     public Boolean desvincularAluno(Aluno aluno) {
         return this.alunosMatriculados.remove(aluno);
+    }
+
+    public Horario getHorario() {
+        return horario;
+    }
+
+    public void setHorario(Horario horario) {
+        this.horario = horario;
     }
 }

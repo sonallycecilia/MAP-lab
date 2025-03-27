@@ -24,7 +24,7 @@ public class ControleAcademico {
     }
 
     public void criarTurma(Disciplina disciplina, Professor professor, String periodo, String turno) {
-        turmas.add(new Turma(disciplina, professor, periodo, turno));
+        turmas.add(new Turma(disciplina, professor, , periodo, , turno));
     }
 
     public void matricularAlunoEmTurma(Aluno aluno, Turma turma) {
