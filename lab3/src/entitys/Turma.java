@@ -3,14 +3,15 @@ package entitys;
 import java.util.ArrayList;
 
 public class Turma {
-    private String periodo;
-    private ArrayList<Aluno> alunosMatriculados;
-    private Professor professor;
-    private String turno;
     private Disciplina disciplina;
+    private Professor professor;
+    private ArrayList<Aluno> alunosMatriculados;
+    private String periodo;
+    private String turno;
 
-    public Turma(Disciplina disciplina, String periodo, String turno) {
+    public Turma(Disciplina disciplina, Professor professor, String periodo, String turno) {
         this.disciplina = disciplina;
+        this.professor = professor;
         this.periodo = periodo;
         this.turno = turno;
         this.alunosMatriculados = new ArrayList<>();
