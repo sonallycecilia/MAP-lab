@@ -8,14 +8,12 @@ public class Aluno {
     private String nome;
     private int matricula;
     private double cra;
-    private Boletim boletim;
 
     // construtores
     public Aluno (String nome, int matricula){
         this.nome = nome;
         this.matricula = matricula;
         this.cra = 0;
-        boletim = new Boletim();
     }
 
     // getters
@@ -27,9 +25,6 @@ public class Aluno {
     }
     public double getCra() {
         return cra;
-    }
-    public Boletim getBoletim() {
-        return boletim;
     }
 
     // setters
