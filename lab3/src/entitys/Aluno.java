@@ -28,7 +28,7 @@ public class Aluno {
     public double getCra() {
         return cra;
     }
-    public Map getBoletim() {
+    public Boletim getBoletim() {
         return boletim;
     }
 
