@@ -1,5 +1,7 @@
 package entitys;
 
+import utils.Horario;
+
 import java.util.ArrayList;
 
 public class ControleAcademico {
@@ -23,11 +25,14 @@ public class ControleAcademico {
         professores.add(new Professor(nome, matricula));
     }
 
-    public void criarTurma(Disciplina disciplina, Professor professor, String periodo, String turno) {
-        turmas.add(new Turma(disciplina, professor, , periodo, , turno));
+    public void criarTurma(Disciplina disciplina, Professor professor, Horario horario, String periodo) {
+        turmas.add(new Turma(disciplina, professor, horario, periodo));
     }
 
     public void matricularAlunoEmTurma(Aluno aluno, Turma turma) {
         turma.matricularAluno(aluno);
+    }
+    public void removerAlunoEmTurma(Aluno aluno, Turma turma) {
+        turma.desvincularAluno(aluno);
     }
 }
