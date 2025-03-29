@@ -18,7 +18,6 @@ public class Disciplina {
     public int getCargaHoraria() {
         return cargaHoraria;
     }
-
     public String getNome() {
         return nome;
     }

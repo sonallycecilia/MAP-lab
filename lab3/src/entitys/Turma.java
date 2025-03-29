@@ -13,15 +13,12 @@ public class Turma {
     private Horario horario;
     private String periodo;
     private ArrayList<Aluno> alunosMatriculados;
-    private Map<Aluno, Boletim> medias;
 
-    // A classe Horario deve ser instanciada ao criar uma turma? Ou deve ser definido posteriormente?
-    //acho que na propria turma
     public Turma(Disciplina disciplina, Professor professor, Horario horario, String periodo) {
         this.disciplina = disciplina;
         this.professor = professor;
+        this.periodo = periodo;
         this.alunosMatriculados = new ArrayList<>();
-        this.medias = new HashMap<>();
         this.horario = horario;
     }
 
@@ -57,15 +54,10 @@ public class Turma {
     }
 
     // metodos
-    // Essa responsabilidade deve ser da Turma ou de ControleAcademico?
-    //controle academico, mas deve ter em turno
-    public Boolean desvincularAluno(Aluno aluno) {
+    public boolean desvincularAluno(Aluno aluno) {
         return this.alunosMatriculados.remove(aluno);
     }
-    public Boolean matricularAluno(Aluno aluno){
+    public boolean matricularAluno(Aluno aluno){
         return this.alunosMatriculados.add(aluno);
-    }
-    public void registrarNotas(Aluno aluno, Boletim boletim){
-        this.medias.put(aluno, boletim);
     }
 }

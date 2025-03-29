@@ -29,6 +29,4 @@ public class Professor {
         this.matricula = matricula;
     }
 
-    // metodos
-
 }
