@@ -1,10 +1,5 @@
 package entitys;
 
-import utils.Boletim;
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class Aluno {
     private String nome;
     private int matricula;

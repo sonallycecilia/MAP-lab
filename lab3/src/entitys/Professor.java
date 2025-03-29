@@ -1,7 +1,5 @@
 package entitys;
 
-import java.util.ArrayList;
-
 public class Professor {
     private String nome;
     private int matricula;

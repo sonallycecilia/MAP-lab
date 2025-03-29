@@ -5,9 +5,8 @@ public class Disciplina {
     private String ementa;
     private int cargaHoraria;
 
-    public Disciplina(String nome, String ementa, int cargaHoraria) {
+    public Disciplina(String nome, int cargaHoraria) {
         this.nome = nome;
-        this.ementa = ementa;
         this.cargaHoraria = cargaHoraria;
     }
 

@@ -1,11 +1,8 @@
 package entitys;
 
-import utils.Boletim;
 import utils.Horario;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Turma {
     private Disciplina disciplina;
