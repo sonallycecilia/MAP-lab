@@ -12,6 +12,7 @@ public class ControleAcademico {
     private String endereco;
     private ArrayList<Aluno> alunos;
     private ArrayList<Professor> professores;
+    private ArrayList<Disciplina> disciplinas;
     private ArrayList<Turma> turmas;
     private Map<Aluno, Map<Disciplina, Boletim>> boletims;
 
@@ -21,6 +22,7 @@ public class ControleAcademico {
         this.alunos = new ArrayList<>();
         this.professores = new ArrayList<>();
         this.turmas = new ArrayList<>();
+        this.disciplinas = new ArrayList<>();
         this.boletims = new HashMap<>();
     }
 
@@ -36,6 +38,9 @@ public class ControleAcademico {
     }
     public ArrayList<Professor> getProfessores() {
         return professores;
+    }
+    public ArrayList<Disciplina> getDisciplinas() {
+        return disciplinas;
     }
     public ArrayList<Turma> getTurmas() {
         return turmas;
@@ -65,16 +70,28 @@ public class ControleAcademico {
     }
 
     //metodos
-    public boolean criarAluno(String nome, int matricula) {
-        return alunos.add(new Aluno(nome, matricula));
+    public Aluno cadastrarAluno(String nome, int matricula) {
+        Aluno aluno = new Aluno(nome, matricula);
+        alunos.add(aluno);
+        return aluno;
     }
 
-    public boolean criarProfessor(String nome, int matricula) {
-        return professores.add(new Professor(nome, matricula));
+    public Professor cadastrarProfessor(String nome, int matricula) {
+        Professor professor = new Professor(nome, matricula);
+        professores.add(professor);
+        return professor;
     }
 
-    public boolean criarTurma(Disciplina disciplina, Professor professor, Horario horario, String periodo) {
-        return turmas.add(new Turma(disciplina, professor, horario, periodo));
+    public Disciplina criarDisciplina(String nome, int cargaHoraria){
+        Disciplina disciplina = new Disciplina(nome, cargaHoraria);
+        disciplinas.add(disciplina);
+        return disciplina;
+    }
+
+    public Turma criarTurma(Disciplina disciplina, Professor professor, Horario horario, String periodo) {
+        Turma turma = new Turma(disciplina, professor, horario, periodo);
+        turmas.add(turma);
+        return turma;
     }
 
     public boolean matricularAlunoEmTurma(Aluno aluno, Turma turma) {
@@ -95,5 +112,4 @@ public class ControleAcademico {
         }
         return controle;
     }
-
 }
