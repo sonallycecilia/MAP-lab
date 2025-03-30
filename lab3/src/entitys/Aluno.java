@@ -1,23 +1,17 @@
 package entitys;
 
+import java.util.ArrayList;
+
 public class Aluno {
     private String nome;
     private int matricula;
-<<<<<<< HEAD
-    private double cra;
-=======
     private int cra;
     private ArrayList<DisciplinaAluno> disciplinas;
->>>>>>> 29166147e31fc93949bb79e13f43b0d94e8f9e39
 
     public Aluno(String nome, int matricula) {
         this.nome = nome;
         this.matricula = matricula;
-<<<<<<< HEAD
-        this.cra = 0;
-=======
         this.disciplinas = new ArrayList<>();
->>>>>>> 29166147e31fc93949bb79e13f43b0d94e8f9e39
     }
 
     public String getNome() {
@@ -27,12 +21,8 @@ public class Aluno {
     public int getMatricula() {
         return matricula;
     }
-<<<<<<< HEAD
-    public double getCra() {
-=======
 
     public int getCra() {
->>>>>>> 29166147e31fc93949bb79e13f43b0d94e8f9e39
         return cra;
     }
 
@@ -47,13 +37,6 @@ public class Aluno {
     public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
-<<<<<<< HEAD
-    public void setCra(double cra) {
-        this.cra = cra;
-    }
-
-}
-=======
 
     public void setCra(int cra) {
         this.cra = cra;
@@ -80,4 +63,3 @@ public class Aluno {
         		
         		
         		
->>>>>>> 29166147e31fc93949bb79e13f43b0d94e8f9e39

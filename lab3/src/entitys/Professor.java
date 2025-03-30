@@ -1,5 +1,7 @@
 package entitys;
 
+import java.util.ArrayList;
+
 public class Professor {
     private String nome;
     private int matricula;
@@ -34,8 +36,6 @@ public class Professor {
         this.matricula = matricula;
     }
 
-<<<<<<< HEAD
-=======
     // metodos
     public void vincularDisciplina(DisciplinaProfessor disciplina) {
         this.disciplinas.add(disciplina);
@@ -54,5 +54,4 @@ public class Professor {
             System.out.print(disciplina.getNome() + " -> " + disciplina.getHorario().toString() + "\n");
         }
     }
->>>>>>> 29166147e31fc93949bb79e13f43b0d94e8f9e39
 }
