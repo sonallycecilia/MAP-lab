@@ -5,7 +5,7 @@ import utils.enums.*;
 
 public class ControleAcademico {
     public static void main(String[] args) {
-        Turmas turmas = new Turmas();
+        Turma turma = new Turma();
         String[] disciplinasOfertadas = {"Matematica", "Portugues", "Ciencias", "Historia", "Filosofia"};
 
         Professor professor1 = new Professor("Marta", 12285122);
@@ -14,13 +14,13 @@ public class ControleAcademico {
         Aluno aluno3 = new Aluno("Maria", 462656567);
 
         // Criando disciplinas
-        DisciplinaProfessor matematica = turmas.criarDisciplina(
+        DisciplinaProfessor matematica = turma.criarDisciplina(
             disciplinasOfertadas[0], 
             professor1, 
             new Horario(Dia.QUINTA, HoraAula._07_09)
         );
         
-        DisciplinaProfessor historia = turmas.criarDisciplina(
+        DisciplinaProfessor historia = turma.criarDisciplina(
             disciplinasOfertadas[3], 
             professor1, 
             new Horario(Dia.SEGUNDA, HoraAula._11_13)
@@ -28,10 +28,10 @@ public class ControleAcademico {
 
         // Matriculando alunos
         try {
-            turmas.matricularAluno("Matematica", aluno1);
-            turmas.matricularAluno("Matematica", aluno2);
-            turmas.matricularAluno("Matematica", aluno3);
-            turmas.matricularAluno("Historia", aluno1);
+            turma.matricularAluno("Matematica", aluno1);
+            turma.matricularAluno("Matematica", aluno2);
+            turma.matricularAluno("Matematica", aluno3);
+            turma.matricularAluno("Historia", aluno1);
         } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
         }
