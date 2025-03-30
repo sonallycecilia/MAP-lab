@@ -42,4 +42,18 @@ public class TestTriangulo {
         double alturaEsperada = 3.0;
         assertEquals(alturaEsperada, triangulo.getAltura(), 0.0001);
     }
+
+    @Test
+    public void testCalcularSemiPerimetro() {
+        Triangulo triangulo = new Triangulo(3, 4, 5);
+        double semiPerimetroEsperado = 6.0;
+        assertEquals(semiPerimetroEsperado, triangulo.getSemiperimetro(), 0.0001);
+    }
+
+    @Test
+    public void testCalcularPerimetro() {
+        Triangulo triangulo = new Triangulo(3, 4, 5);
+        double perimetroEsperado = 12.0;
+        assertEquals(perimetroEsperado, triangulo.getPerimetro(), 0.0001);
+    }
 }
