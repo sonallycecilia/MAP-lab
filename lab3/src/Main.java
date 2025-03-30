@@ -1,5 +1,4 @@
 import entitys.ControleAcademico;
-import utils.Boletim;
 import utils.Horario;
 import utils.enums.Dia;
 import utils.enums.HoraAula;
@@ -12,31 +11,42 @@ public class Main {
                 "Rua Baraunas"
         );
 
-        uepb.cadastrarProfessor("Sabrina", 1213235);
-        uepb.cadastrarProfessor("Janderson", 1213236);
+        //cadastro de professores
+        uepb.cadastrarProfessor("Sabrina", 540);
+        uepb.cadastrarProfessor("Janderson", 541);
 
-        uepb.cadastrarAluno("Sonally", 1246233);
-        uepb.cadastrarAluno("Thales", 1246234);
-        uepb.cadastrarAluno("Julia", 1246236);
+        //cadastro de alunos
+        uepb.cadastrarAluno("Sonally", 640);
+        uepb.cadastrarAluno("Thales", 641);
+        uepb.cadastrarAluno("Julia", 642);
 
-        uepb.criarDisciplina("MAP", 60);
+        //cadastro de disciplinas
+        uepb.cadastrarDisciplina("Metodos Avançados de Programação", 60, 10);
+        uepb.cadastrarDisciplina("Paradigmas de Programação", 60, 11);
+        uepb.cadastrarDisciplina("Linguagem de Programação 2", 60, 12);
 
+        //criando horarios
         Horario h1 = new Horario(Dia.SEGUNDA, HoraAula._07_09, Turno.MANHA);
+        Horario h2 = new Horario(Dia.SEGUNDA, HoraAula._14_16, Turno.TARDE);
+        Horario h3 = new Horario(Dia.QUARTA, HoraAula._09_11, Turno.MANHA);
+
+        //criando turmas
         uepb.criarTurma(
-                uepb.getDisciplinas().get(0),
-                uepb.getProfessores().get(0),
-                h1,
-                "2025.1");
-
-        uepb.matricularAlunoEmTurma(uepb.getAlunos().get(0), uepb.getTurmas().get(0));
-        uepb.matricularAlunoEmTurma(uepb.getAlunos().get(1), uepb.getTurmas().get(0));
-        uepb.matricularAlunoEmTurma(uepb.getAlunos().get(2), uepb.getTurmas().get(0));
-
-        Boletim boletim = new Boletim(8.0, 7.0, 7.5, 7.3);
-        uepb.adicionarNotas(
-                uepb.getAlunos().get(0),
-                uepb.getDisciplinas().get(0),
-                boletim
+                uepb.getDisciplinaPorID(10),
+                uepb.getProfessorPorMatricula(540),
+                h1, "2025.1"
         );
+        uepb.criarTurma(
+                uepb.getDisciplinaPorID(11),
+                uepb.getProfessorPorMatricula(541),
+                h3, "2025.1"
+        );
+        uepb.criarTurma(
+                uepb.getDisciplinaPorID(12),
+                uepb.getProfessorPorMatricula(541),
+                h2, "2025.1"
+        );
+
+        //matriculando alunos
     }
 }

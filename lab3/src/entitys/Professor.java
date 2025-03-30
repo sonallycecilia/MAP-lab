@@ -2,6 +2,7 @@ package entitys;
 
 public class Professor {
     private String nome;
+    private String deparatamento;
     private int matricula;
 
     // construtores
@@ -17,6 +18,9 @@ public class Professor {
     public int getMatricula(){
         return matricula;
     }
+    public String getDeparatamento() {
+        return deparatamento;
+    }
 
 
     // setters
@@ -26,5 +30,7 @@ public class Professor {
     public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
-
+    public void setDeparatamento(String deparatamento) {
+        this.deparatamento = deparatamento;
+    }
 }

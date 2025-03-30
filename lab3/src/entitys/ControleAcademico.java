@@ -14,7 +14,6 @@ public class ControleAcademico {
     private ArrayList<Professor> professores;
     private ArrayList<Disciplina> disciplinas;
     private ArrayList<Turma> turmas;
-    private Map<Aluno, Map<Disciplina, Boletim>> boletims;
 
     public ControleAcademico(String nome, String endereco) {
         this.nomeInstituicao = nome;
@@ -23,50 +22,52 @@ public class ControleAcademico {
         this.professores = new ArrayList<>();
         this.turmas = new ArrayList<>();
         this.disciplinas = new ArrayList<>();
-        this.boletims = new HashMap<>();
     }
 
     //getters
     public String getNomeInstituicao() {
         return nomeInstituicao;
     }
+
     public String getEndereco() {
         return endereco;
     }
+
     public ArrayList<Aluno> getAlunos() {
         return alunos;
     }
+
     public ArrayList<Professor> getProfessores() {
         return professores;
     }
+
     public ArrayList<Disciplina> getDisciplinas() {
         return disciplinas;
     }
+
     public ArrayList<Turma> getTurmas() {
         return turmas;
     }
-    public Map<Aluno, Map<Disciplina, Boletim>> getBoletims() {
-        return boletims;
-    }
+
+    //setters
     public void setNomeInstituicao(String nomeInstituicao) {
         this.nomeInstituicao = nomeInstituicao;
     }
 
-    //setters
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+
     public void setAlunos(ArrayList<Aluno> alunos) {
         this.alunos = alunos;
     }
+
     public void setProfessores(ArrayList<Professor> professores) {
         this.professores = professores;
     }
+
     public void setTurmas(ArrayList<Turma> turmas) {
         this.turmas = turmas;
-    }
-    public void setBoletims(Map<Aluno, Map<Disciplina, Boletim>> boletims) {
-        this.boletims = boletims;
     }
 
     //metodos
@@ -82,8 +83,8 @@ public class ControleAcademico {
         return professor;
     }
 
-    public Disciplina criarDisciplina(String nome, int cargaHoraria){
-        Disciplina disciplina = new Disciplina(nome, cargaHoraria);
+    public Disciplina cadastrarDisciplina(String nome, int cargaHoraria, int id) {
+        Disciplina disciplina = new Disciplina(nome, cargaHoraria, id);
         disciplinas.add(disciplina);
         return disciplina;
     }
@@ -94,22 +95,35 @@ public class ControleAcademico {
         return turma;
     }
 
-    public boolean matricularAlunoEmTurma(Aluno aluno, Turma turma) {
-        return turma.matricularAluno(aluno);
-    }
-    public boolean removerAlunoEmTurma(Aluno aluno, Turma turma) {
-        return turma.desvincularAluno(aluno);
+    public Disciplina getDisciplinaPorID(int id) {
+        for (Disciplina disciplina : disciplinas) {
+            if (disciplina.getId().equals(id)) {
+                return disciplina;
+            }
+        }
+        throw new ControleAcademicoExceptions("Disciplina não encontrada: " + id);
     }
 
-    public boolean adicionarNotas(Aluno aluno, Disciplina disciplina, Boletim boletim){
-        boolean controle = false;
-        if (!boletims.containsKey(aluno)) {
-            boletims.put(aluno, new HashMap<>());
+    public Professor getProfessorPorMatricula(Integer matricula) {
+        for (Professor professor : professores) {
+            if (professor.getMatricula().equals(matricula)) {
+                return professor;
+            }
         }
-        if(!controle){
-            boletims.get(aluno).put(disciplina, boletim);
-            controle = true;
+        throw new ControleAcademicoExceptions("Matricula de Profess: " + matricula);
+    }
+
+    public Aluno getAlunoPorMatricula(int matricula) {
+        for (Aluno aluno : alunos) {
+            if (aluno.getNome().equals(matricula)) {
+                return aluno;
+            }
         }
-        return controle;
+        throw new ControleAcademicoExceptions("Matricula de Aluno não encontrada: " + matricula);
+    }
+
+    public Turma getTurmaPorId(int id){
+
     }
 }
+

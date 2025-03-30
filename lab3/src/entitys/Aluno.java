@@ -33,5 +33,4 @@ public class Aluno {
     public void setCra(double cra) {
         this.cra = cra;
     }
-
 }

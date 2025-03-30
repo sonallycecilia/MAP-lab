@@ -39,6 +39,8 @@ public class Horario {
     // metodos
     @Override
     public String toString(){
-        return "Dia: "+ dia + " as " + hora + " horas" ;
+        return "Dia: "+ dia +
+                " as " + hora + " horas" +
+                " | Turno: " + turno;
     }
 }
