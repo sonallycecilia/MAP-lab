@@ -1,57 +1,92 @@
 package entitys;
-
 import utils.Horario;
-import utils.enums.Dia;
-import utils.enums.HoraAula;
-
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Turma {
-    private Disciplina disciplina;
-    private Professor professor;
-    private ArrayList<Aluno> alunosMatriculados;
-    private Horario horario;
+    private Map<String, DisciplinaProfessor> disciplinasProfessores;
+    private Map<String, ArrayList<DisciplinaAluno>> disciplinasAlunos;
 
-    // A classe Horario deve ser instanciada ao criar uma turma? Ou deve ser definido posteriormente?
-    public Turma(Disciplina disciplina, Professor professor, Dia dia, HoraAula horaAula) {
-        this.disciplina = disciplina;
-        this.professor = professor;
-        this.alunosMatriculados = new ArrayList<>();
-        this.horario = new Horario(dia, horaAula);
+    public Turma() {
+        this.disciplinasProfessores = new HashMap<>();
+        this.disciplinasAlunos = new HashMap<>();
     }
 
-    public Disciplina getDisciplina() {
-        return disciplina;
+    // Método para criar uma nova disciplina 
+    
+    public DisciplinaProfessor criarDisciplina(String nome, Professor professor, Horario horario) {
+        DisciplinaProfessor novaDisciplina = new DisciplinaProfessor(nome, professor, horario);
+        disciplinasProfessores.put(nome, novaDisciplina);
+        professor.vincularDisciplina(novaDisciplina);
+        return novaDisciplina;
     }
 
-    public void setDisciplina(Disciplina disciplina) {
-        this.disciplina = disciplina;
+    // Matricular aluno em uma disciplina
+    public void matricularAluno(String nomeDisciplina, Aluno aluno) {
+        if (!disciplinasProfessores.containsKey(nomeDisciplina)) {
+            throw new IllegalArgumentException("Disciplina não encontrada: " + nomeDisciplina);
+        }
+
+        DisciplinaProfessor disciplinaProf = disciplinasProfessores.get(nomeDisciplina);
+        DisciplinaAluno disciplinaAluno = new DisciplinaAluno(
+            disciplinaProf.getNome(),
+            disciplinaProf.getProfessor(),
+            disciplinaProf.getHorario()
+        );
+
+        // Adiciona à lista de alunos da disciplina (versão professor)
+        disciplinaProf.matricularAluno(aluno);
+        
+        // Adiciona à lista de disciplinas do aluno
+        aluno.vincularDisciplina(disciplinaAluno);
+        
+        // Mantém registro na turma
+        disciplinasAlunos.get(nomeDisciplina).add(disciplinaAluno);
     }
 
-    public ArrayList<Aluno> getAlunosMatriculados() {
-        return alunosMatriculados;
+    // Obter disciplina (versão professor)
+    public DisciplinaProfessor getDisciplinaProfessor(String nome) {
+        return disciplinasProfessores.get(nome);
     }
 
-    public Professor getProfessor() {
-        return professor;
+    // Obter lista de alunos de uma disciplina
+    public ArrayList<DisciplinaAluno> getAlunosDaDisciplina(String nomeDisciplina) {
+        return disciplinasAlunos.getOrDefault(nomeDisciplina, new ArrayList<>());
     }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
+    // Listar todas as disciplinas
+    public void listarDisciplinas() {
+        System.out.println("Disciplinas cadastradas:");
+        for (String nome : disciplinasProfessores.keySet()) {
+            DisciplinaProfessor dp = disciplinasProfessores.get(nome);
+            System.out.printf("%s - Professor: %s - Horário: %s - Alunos: %d%n",
+                nome,
+                dp.getProfessor().getNome(),
+                dp.getHorario().toString(),
+                dp.qtdDeAlunos());
+        }
     }
 
-    // metodos
-
-    // Essa responsabilidade deve ser da Turma ou de ControleAcademico?
-    public Boolean desvincularAluno(Aluno aluno) {
-        return this.alunosMatriculados.remove(aluno);
+    // Verificar horário de um aluno
+    public void verificarHorarioAluno(Aluno aluno) {
+        System.out.println("Horário do aluno " + aluno.getNome() + ":");
+        for (DisciplinaAluno da : aluno.getDisciplinas()) {
+            System.out.printf("%s - %s (Prof. %s)%n",
+                da.getNome(),
+                da.getHorario().toString(),
+                da.getProfessor().getNome());
+        }
     }
 
-    public Horario getHorario() {
-        return horario;
-    }
-
-    public void setHorario(Horario horario) {
-        this.horario = horario;
+    // Verificar horário de um professor
+    public void verificarHorarioProfessor(Professor professor) {
+        System.out.println("Horário do professor " + professor.getNome() + ":");
+        for (DisciplinaProfessor dp : professor.getDisciplinas()) {
+            System.out.printf("%s - %s (%d alunos)%n",
+                dp.getNome(),
+                dp.getHorario().toString(),
+                dp.qtdDeAlunos());
+        }
     }
 }

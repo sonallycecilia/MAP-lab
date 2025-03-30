@@ -5,7 +5,7 @@ import utils.enums.*;
 
 public class ControleAcademico {
     public static void main(String[] args) {
-        Turmas turmas = new Turmas();
+        Turma turmas = new Turma();
         String[] disciplinasOfertadas = {"Matematica", "Portugues", "Ciencias", "Historia", "Filosofia"};
 
         Professor professor1 = new Professor("Marta", 12285122);
