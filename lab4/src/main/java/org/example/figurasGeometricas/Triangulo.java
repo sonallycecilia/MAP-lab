@@ -1,6 +1,9 @@
 package org.example.figurasGeometricas;
 
-public class Triangulo {
+import org.example.figurasGeometricas.exceptions.FiguraGeometricaException;
+
+public class Triangulo implements FiguraGeometricaIF{
+    private String nome;
     private double ladoA;
     private double ladoB;
     private double ladoC;
@@ -15,10 +18,14 @@ public class Triangulo {
         this.ladoB = ladoB;
         this.ladoC = ladoC;
 
+        if(ladoA <= 0 || ladoB <= 0 || ladoC <= 0){
+            throw new FiguraGeometricaException("Não existe lado negativo!");
+        }
         if (!validarTriangulo()) {
-            throw new IllegalArgumentException("Os lados fornecidos não formam um triângulo válido!");
+            throw new FiguraGeometricaException("Os lados fornecidos não formam um triângulo válido!");
         }
 
+        this.nome = "Triangulo";
         this.semiperimetro = calcularSemiPerimetro();
         this.perimetro = calcularPerimetro();
         this.area = calcularArea();
@@ -51,6 +58,9 @@ public class Triangulo {
     public double getSemiperimetro() {
         return semiperimetro;
     }
+    public String getNome() {
+        return nome;
+    }
 
     //setters
     public void setLadoA(double ladoA) {
@@ -76,6 +86,9 @@ public class Triangulo {
     }
     public void setSemiperimetro(double semiperimetro) {
         this.semiperimetro = semiperimetro;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     //metodos
@@ -111,8 +124,11 @@ public class Triangulo {
 
     @Override
     public String toString() {
-        return "Lados do triângulo: " +
-                ladoA + ", " + ladoB + ", " + ladoC +
-                " de forma " + tipo + " e area " + area;
+        return "A figura é um " + nome +
+                " com laterais " + ladoA + ", " + ladoC +
+                " e base " + ladoB +
+                " do tipo " + tipo +
+                ", area " + area +
+                ", perimetro " + perimetro;
     }
 }

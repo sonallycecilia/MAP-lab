@@ -1,15 +1,19 @@
 package org.example.figurasGeometricas;
 
-public class Retangulo {
+import org.example.figurasGeometricas.exceptions.FiguraGeometricaException;
+
+public class Retangulo implements FiguraGeometricaIF{
+    private String nome;
     private double largura;
     private double comprimento;
     private double area;
     private double perimetro;
 
     public Retangulo(double largura, double comprimento){
-        if (comprimento < 0 || largura < 0){
-            throw new IllegalArgumentException("Dados negativos!");
+        if (comprimento <= 0 || largura < 0){
+            throw new FiguraGeometricaException("Dados negativos!");
         }
+        this.nome = "Retangulo";
         this.largura = Math.min(largura, comprimento);
         this.comprimento = Math.max(comprimento, largura);
         this.area = calcularArea();
@@ -29,6 +33,9 @@ public class Retangulo {
     public double getPerimetro() {
         return perimetro;
     }
+    public String getNome(){
+        return nome;
+    }
 
     //setters
     public void setLargura(double largura) {
@@ -43,6 +50,9 @@ public class Retangulo {
     public void setPerimetro(double perimetro) {
         this.perimetro = perimetro;
     }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     //metodos
     public double calcularArea(){
@@ -51,11 +61,14 @@ public class Retangulo {
     public double calcularPerimetro(){
         return (comprimento + largura)*2;
     }
+
     @Override
     public String toString() {
-        return "O Retângulo possui comprimento " +
-                comprimento + " largura " + largura +
-                " e area " + area;
+        return "A figura é um " + nome +
+                " com comprimento " + comprimento +
+                ", largura " + largura +
+                ", area " + area +
+                ", perimetro " + perimetro;
     }
 
 }

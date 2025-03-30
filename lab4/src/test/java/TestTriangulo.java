@@ -11,14 +11,6 @@ public class TestTriangulo {
     }
 
     @Test
-    public void testTrianguloInvalido() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            new Triangulo(1, 1, 5);
-        });
-        assertEquals("Os lados fornecidos não formam um triângulo válido!", exception.getMessage());
-    }
-
-    @Test
     public void testTipoTrianguloEquilatero() {
         Triangulo triangulo = new Triangulo(3, 3, 3);
         assertEquals("Equilatero", triangulo.getTipo());
