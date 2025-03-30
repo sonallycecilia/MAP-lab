@@ -40,13 +40,6 @@ public class Turma {
         this.professor = professor;
     }
 
-    // metodos
-
-    // Essa responsabilidade deve ser da Turma ou de ControleAcademico?
-    public Boolean desvincularAluno(Aluno aluno) {
-        return this.alunosMatriculados.remove(aluno);
-    }
-
     public Horario getHorario() {
         return horario;
     }
@@ -54,4 +47,20 @@ public class Turma {
     public void setHorario(Horario horario) {
         this.horario = horario;
     }
+
+    // metodos
+
+    // Essa responsabilidade deve ser da Turma ou de ControleAcademico?
+    public boolean matricularAluno(Aluno aluno) {
+        if (!alunosMatriculados.contains(aluno)) {
+            alunosMatriculados.add(aluno);
+            return true;
+        }
+        return false; // Aluno já está matriculado
+    }
+    public Boolean desvincularAluno(Aluno aluno) {
+        return this.alunosMatriculados.remove(aluno);
+    }
+
+
 }

@@ -2,6 +2,7 @@ package entitys;
 
 import java.util.ArrayList;
 
+//TODO: Fazer verificacoes para evitar choques de horarios entre as Turmas que o Aluno esta matriculado
 public class Aluno {
     private String nome;
     private int matricula;
