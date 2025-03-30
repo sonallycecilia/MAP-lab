@@ -4,33 +4,30 @@ import utils.enums.*;
 
 public class Horario {
     private Dia dia;
-    private HoraAula hora;
+    private HoraAula horaAula;
 
-    // construtores
-    public Horario(Dia dia, HoraAula hora) {
+    public Horario(Dia dia, HoraAula horaAula) {
         this.dia = dia;
-        this.hora = hora;
+        this.horaAula = horaAula;
     }
 
-    // getters
     public Dia getDia() {
         return dia;
     }
-    public HoraAula getHora() {
-        return hora;
+
+    public HoraAula getHoraAula() {
+        return horaAula;
     }
 
-    // setters
-    public void setDia(Dia dia) {
-        this.dia = dia;
-    }
-    public void setHora(HoraAula hora) {
-        this.hora = hora;
+    public boolean temSobreposicao(Horario outro) {
+        if (this.dia != outro.getDia()) {
+            return false;
+        }
+        return this.horaAula.temSobreposicao(outro.getHoraAula());
     }
 
-    // metodos
     @Override
-    public String toString(){
-        return "Dia: "+ dia + " as " + hora + " horas";
+    public String toString() {
+        return dia + " " + horaAula.toString();
     }
 }
