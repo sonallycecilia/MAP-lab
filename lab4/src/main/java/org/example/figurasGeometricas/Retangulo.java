@@ -10,9 +10,12 @@ public class Retangulo implements FiguraGeometricaIF{
     private double perimetro;
 
     //TODO: Verificação dos lados
-    public Retangulo(double largura, double comprimento){
+    public Retangulo(double largura, double comprimento) throws FiguraGeometricaException{
         if (comprimento <= 0 || largura <= 0){
             throw new FiguraGeometricaException("Dados negativos ou iguais a 0!");
+        }
+        if (comprimento == largura){
+            throw new FiguraGeometricaException("Voce deveria instanciar um quadrado!");
         }
         this.nome = "Retangulo";
         this.largura = Math.min(largura, comprimento);

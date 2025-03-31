@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// TODO: Colocar os teste em suas respectivas classes
 public class TestFIguraGeometricaException {
     @Test
     public void testCirculoInvalido() {

@@ -13,13 +13,13 @@ public class Triangulo implements FiguraGeometricaIF{
     private double altura;
     private String tipo;
 
-    public Triangulo(double ladoA, double ladoB, double ladoC) {
+    public Triangulo(double ladoA, double ladoB, double ladoC) throws FiguraGeometricaException {
         this.ladoA = ladoA;
         this.ladoB = ladoB;
         this.ladoC = ladoC;
 
         if(ladoA <= 0 || ladoB <= 0 || ladoC <= 0){
-            throw new FiguraGeometricaException("Não existe lado negativo!");
+            throw new FiguraGeometricaException("Não existe lados negativo ou menores que 0!");
         }
         if (!validarTriangulo()) {
             throw new FiguraGeometricaException("Os lados fornecidos não formam um triângulo válido!");

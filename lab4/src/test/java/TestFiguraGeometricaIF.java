@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// Não é necessário testar a interface
 public class TestFiguraGeometricaIF {
     @Test
     public void testMudancaFiguraGeometrica() {

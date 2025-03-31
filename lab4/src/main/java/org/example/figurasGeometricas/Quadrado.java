@@ -8,7 +8,7 @@ public class Quadrado implements FiguraGeometricaIF{
     private double area;
     private double perimetro;
 
-    public Quadrado(double lado) {
+    public Quadrado(double lado) throws FiguraGeometricaException{
         if (lado <= 0){
             throw new FiguraGeometricaException("Dados negativos e/ou menor que 0!");
         }

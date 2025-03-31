@@ -8,7 +8,7 @@ public class Circulo implements FiguraGeometricaIF{
     private double area;
     private double perimetro;
 
-    public Circulo(double raio){
+    public Circulo(double raio) throws FiguraGeometricaException{
         if(raio <= 0){
             throw new FiguraGeometricaException("Dados negativos e/ou menor que 0!");
         }
