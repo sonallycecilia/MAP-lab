@@ -13,6 +13,8 @@ public class ControleAcademico {
     private ArrayList<Disciplina> disciplinas;
     private ArrayList<Turma> turmas;
 
+    // construtor
+
     public ControleAcademico(String nome, String endereco) {
         this.nomeInstituicao = nome;
         this.endereco = endereco;
@@ -22,53 +24,44 @@ public class ControleAcademico {
         this.disciplinas = new ArrayList<>();
     }
 
-    //getters
+    // getters
     public String getNomeInstituicao() {
         return nomeInstituicao;
     }
-
     public String getEndereco() {
         return endereco;
     }
-
     public ArrayList<Aluno> getAlunos() {
         return alunos;
     }
-
     public ArrayList<Professor> getProfessores() {
         return professores;
     }
-
     public ArrayList<Disciplina> getDisciplinas() {
         return disciplinas;
     }
-
     public ArrayList<Turma> getTurmas() {
         return turmas;
     }
 
-    //setters
+    // setters
     public void setNomeInstituicao(String nomeInstituicao) {
         this.nomeInstituicao = nomeInstituicao;
     }
-
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-
     public void setAlunos(ArrayList<Aluno> alunos) {
         this.alunos = alunos;
     }
-
     public void setProfessores(ArrayList<Professor> professores) {
         this.professores = professores;
     }
-
     public void setTurmas(ArrayList<Turma> turmas) {
         this.turmas = turmas;
     }
 
-    //metodos
+    // métodos cadastro
     public Aluno cadastrarAluno(String nome, int matricula) throws ControleAcademicoException {
         Aluno aluno = null;
         if(getAlunoPorMatricula(matricula) == null){
@@ -92,7 +85,7 @@ public class ControleAcademico {
         return disciplina;
     }
 
-    public Turma criarTurma(Disciplina disciplina, Professor professor, Horario horario, String periodo, int id) {
+    public Turma cadastrarTurma(Disciplina disciplina, Professor professor, Horario horario, String periodo, int id) {
         Turma turma = new Turma(disciplina, professor, horario, periodo, id);
         turmas.add(turma);
         return turma;
@@ -127,6 +120,7 @@ public class ControleAcademico {
         }
         return horarios;
     }
+
     public ArrayList<Disciplina> getDisciplinasProfessor(int matricula) throws ControleAcademicoException {
         ArrayList<Disciplina> disciplinas = new ArrayList<>();
         for (Turma turma : turmas) {
@@ -155,24 +149,34 @@ public class ControleAcademico {
         return disciplinas;
     }
 
-
     //metodos de filtro
+    // Removido o lançamento da exceção
     public Disciplina getDisciplinaPorID(int id) throws ControleAcademicoException {
         for (Disciplina disciplina : disciplinas) {
             if (disciplina.getId() == id) {
                 return disciplina;
             }
         }
-        throw new ControleAcademicoException("Disciplina não encontrada: " + id);
+        return null;
     }
 
-    public Professor getProfessorPorMatricula(Integer matricula) throws ControleAcademicoException {
+    public Turma getTurmaPorId(int id) {
+        for (Turma turma : turmas) {
+            if (turma.getId() == id) {
+                return turma;
+            }
+        }
+        return null;
+    }
+
+    // Removido o lançamento da exceção
+    public Professor getProfessorPorMatricula(Integer matricula) {
         for (Professor professor : professores) {
             if (professor.getMatricula() == matricula) {
                 return professor;
             }
         }
-        throw new ControleAcademicoException("Matricula de Profess: " + matricula);
+        return null;
     }
 
     // Removido o lançamento da exceção
@@ -183,15 +187,6 @@ public class ControleAcademico {
             }
         }
         return null;
-    }
-
-    public Turma getTurmaPorId(int id) throws ControleAcademicoException {
-        for (Turma turma : turmas) {
-            if (turma.getId() == id) {
-                return turma;
-            }
-        }
-        throw new ControleAcademicoException("Id de turma não encontrada: " + id);
     }
 }
 

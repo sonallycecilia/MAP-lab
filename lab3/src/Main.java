@@ -35,18 +35,18 @@ public class Main {
 
             //criando turmas
             //map
-            uepb.criarTurma(
+            uepb.cadastrarTurma(
                     uepb.getDisciplinaPorID(10),
                     uepb.getProfessorPorMatricula(540),
                     h1, "2025.1", 100
             );
             //pp
-            uepb.criarTurma(
+            uepb.cadastrarTurma(
                     uepb.getDisciplinaPorID(11),
                     uepb.getProfessorPorMatricula(541),
                     h3, "2025.1", 101
             ); //p2
-            uepb.criarTurma(
+            uepb.cadastrarTurma(
                     uepb.getDisciplinaPorID(12),
                     uepb.getProfessorPorMatricula(541),
                     h2, "2025.1", 102
