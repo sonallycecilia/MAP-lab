@@ -14,7 +14,6 @@ public class ControleAcademico {
     private ArrayList<Turma> turmas;
 
     // construtor
-
     public ControleAcademico(String nome, String endereco) {
         this.nomeInstituicao = nome;
         this.endereco = endereco;
@@ -68,30 +67,49 @@ public class ControleAcademico {
             aluno = new Aluno(nome, matricula);
             alunos.add(aluno);
         } else{
-            throw new ControleAcademicoException("O aluno "+nome+" com matricula "+matricula+" ja esta cadastrado");
+            throw new ControleAcademicoException("O Aluno "+nome+" com Matricula "+matricula+" ja esta cadastrado");
         }
         return aluno;
     }
 
-    public Professor cadastrarProfessor(String nome, int matricula) {
-        Professor professor = new Professor(nome, matricula);
-        professores.add(professor);
+    public Professor cadastrarProfessor(String nome, int matricula) throws ControleAcademicoException{
+        Professor professor = null;
+        if(getProfessorPorMatricula(matricula) == null){
+            professor = new Professor(nome, matricula);
+            professores.add(professor);
+        } else {
+            throw new ControleAcademicoException("O Professor "+nome+" com Matricula "+matricula+" ja esta cadastrado");
+        }
+
         return professor;
     }
 
-    public Disciplina cadastrarDisciplina(String nome, int cargaHoraria, int id) {
-        Disciplina disciplina = new Disciplina(nome, cargaHoraria, id);
-        disciplinas.add(disciplina);
+    public Disciplina cadastrarDisciplina(String nome, int cargaHoraria, int id) throws ControleAcademicoException{
+        Disciplina disciplina = null;
+        if(getDisciplinaPorID(id) == null){
+            disciplina = new Disciplina(nome, cargaHoraria, id);
+            disciplinas.add(disciplina);
+        } else {
+            throw new ControleAcademicoException("A Disciplina "+nome+" com Id"+id+" ja esta cadastrada");
+        }
         return disciplina;
     }
 
-    public Turma cadastrarTurma(Disciplina disciplina, Professor professor, Horario horario, String periodo, int id) {
-        Turma turma = new Turma(disciplina, professor, horario, periodo, id);
-        turmas.add(turma);
+    public Turma cadastrarTurma(Disciplina disciplina, Professor professor, Horario horario, String periodo, int id) throws ControleAcademicoException{
+        Turma turma = null;
+        if(getTurmaPorId(id) == null){
+            turma = new Turma(disciplina, professor, horario, periodo, id);
+            turmas.add(turma);
+        } else{
+            throw new ControleAcademicoException("A Turma de "+disciplina.getNome()+" com Id"+id+" ja esta cadastrada");
+        }
+
+
         return turma;
     }
 
-    //metodos de horario
+    // métodos de horário
+    // métodos de get não deveriam lanças exceções
     public ArrayList<Horario> getHorariosProfessor(int matricula) throws ControleAcademicoException {
         ArrayList<Horario> horarios = new ArrayList<>();
         for (Turma turma : turmas) {
@@ -149,9 +167,9 @@ public class ControleAcademico {
         return disciplinas;
     }
 
-    //metodos de filtro
+    // métodos de filtro
     // Removido o lançamento da exceção
-    public Disciplina getDisciplinaPorID(int id) throws ControleAcademicoException {
+    public Disciplina getDisciplinaPorID(int id)  {
         for (Disciplina disciplina : disciplinas) {
             if (disciplina.getId() == id) {
                 return disciplina;
