@@ -1,5 +1,4 @@
 import org.example.figurasGeometricas.Retangulo;
-import org.example.figurasGeometricas.Triangulo;
 import org.example.figurasGeometricas.exceptions.FiguraGeometricaException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

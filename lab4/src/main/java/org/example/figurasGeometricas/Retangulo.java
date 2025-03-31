@@ -2,6 +2,7 @@ package org.example.figurasGeometricas;
 
 import org.example.figurasGeometricas.exceptions.FiguraGeometricaException;
 
+@SuppressWarnings("unused")
 public class Retangulo implements FiguraGeometricaIF{
     private String nome;
     private double largura;
