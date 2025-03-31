@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class Turma {
+    private int id;
     private Disciplina disciplina;
     private Professor professor;
     private Horario horario;
@@ -14,12 +15,13 @@ public class Turma {
     private ArrayList<Aluno> alunosMatriculados;
     private Map<Aluno, Boletim> notas;
 
-    public Turma(Disciplina disciplina, Professor professor, Horario horario, String periodo) {
+    public Turma(Disciplina disciplina, Professor professor, Horario horario, String periodo, int id) {
         this.disciplina = disciplina;
         this.professor = professor;
         this.periodo = periodo;
         this.alunosMatriculados = new ArrayList<>();
         this.horario = horario;
+        this.id = id;
     }
 
     //getters
@@ -41,6 +43,9 @@ public class Turma {
     public Map<Aluno, Boletim> getBoletim(){
         return notas;
     }
+    public int getId() {
+        return id;
+    }
 
     //setters
     public void setDisciplina(Disciplina disciplina) {
@@ -57,6 +62,9 @@ public class Turma {
     }
     public void setBoletim(Map<Aluno, Boletim> boletim) {
         this.notas = boletim;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 
     // metodos

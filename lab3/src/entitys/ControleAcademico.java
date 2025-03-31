@@ -6,6 +6,7 @@ import utils.Horario;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class ControleAcademico {
     private String nomeInstituicao;
@@ -89,15 +90,15 @@ public class ControleAcademico {
         return disciplina;
     }
 
-    public Turma criarTurma(Disciplina disciplina, Professor professor, Horario horario, String periodo) {
-        Turma turma = new Turma(disciplina, professor, horario, periodo);
+    public Turma criarTurma(Disciplina disciplina, Professor professor, Horario horario, String periodo, int id) {
+        Turma turma = new Turma(disciplina, professor, horario, periodo, id);
         turmas.add(turma);
         return turma;
     }
 
     public Disciplina getDisciplinaPorID(int id) {
         for (Disciplina disciplina : disciplinas) {
-            if (disciplina.getId().equals(id)) {
+            if (Objects.equals(disciplina.getId(), id)) {
                 return disciplina;
             }
         }
@@ -106,7 +107,7 @@ public class ControleAcademico {
 
     public Professor getProfessorPorMatricula(Integer matricula) {
         for (Professor professor : professores) {
-            if (professor.getMatricula().equals(matricula)) {
+            if (Objects.equals(professor.getMatricula(), matricula)) {
                 return professor;
             }
         }
@@ -115,7 +116,7 @@ public class ControleAcademico {
 
     public Aluno getAlunoPorMatricula(int matricula) {
         for (Aluno aluno : alunos) {
-            if (aluno.getNome().equals(matricula)) {
+            if (Objects.equals(aluno.getMatricula(), matricula)) {
                 return aluno;
             }
         }
@@ -123,6 +124,12 @@ public class ControleAcademico {
     }
 
     public Turma getTurmaPorId(int id){
+        for (Turma turma : turmas) {
+            if (Objects.equals(turma.getId(), id)) {
+                return turma;
+            }
+        }
+        throw new ControleAcademicoExceptions("Id de turma não encontrada: " + id);
 
     }
 }

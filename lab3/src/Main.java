@@ -1,4 +1,5 @@
 import entitys.ControleAcademico;
+import utils.Boletim;
 import utils.Horario;
 import utils.enums.Dia;
 import utils.enums.HoraAula;
@@ -31,22 +32,39 @@ public class Main {
         Horario h3 = new Horario(Dia.QUARTA, HoraAula._09_11, Turno.MANHA);
 
         //criando turmas
+        //map
         uepb.criarTurma(
                 uepb.getDisciplinaPorID(10),
                 uepb.getProfessorPorMatricula(540),
-                h1, "2025.1"
+                h1, "2025.1", 100
         );
+        //pp
         uepb.criarTurma(
                 uepb.getDisciplinaPorID(11),
                 uepb.getProfessorPorMatricula(541),
-                h3, "2025.1"
-        );
+                h3, "2025.1", 101
+        ); //p2
         uepb.criarTurma(
                 uepb.getDisciplinaPorID(12),
                 uepb.getProfessorPorMatricula(541),
-                h2, "2025.1"
+                h2, "2025.1", 102
         );
 
-        //matriculando alunos
+        //matriculando alunos em map
+        uepb.getTurmaPorId(100).matricularAluno(uepb.getAlunoPorMatricula(640));
+        uepb.getTurmaPorId(100).matricularAluno(uepb.getAlunoPorMatricula(641));
+        uepb.getTurmaPorId(100).matricularAluno(uepb.getAlunoPorMatricula(642));
+
+        //matriculando alunos em p2
+        uepb.getTurmaPorId(101).matricularAluno(uepb.getAlunoPorMatricula(642));
+
+        //matriculando alunos em pp
+        uepb.getTurmaPorId(100).matricularAluno(uepb.getAlunoPorMatricula(640));
+        uepb.getTurmaPorId(100).matricularAluno(uepb.getAlunoPorMatricula(641));
+
+        //cadastrando notas de alunos em turma
+        uepb.getTurmaPorId(100).registrarNotas(uepb.getAlunoPorMatricula(640), 7.5, 8, 9, 7);
+        uepb.getTurmaPorId(100).registrarNotas(uepb.getAlunoPorMatricula(641), 7.5, 8, 9, 7);
+        uepb.getTurmaPorId(100).registrarNotas(uepb.getAlunoPorMatricula(642), 7.5, 8, 9, 7);
     }
 }

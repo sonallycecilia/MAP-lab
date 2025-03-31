@@ -2,7 +2,7 @@ package entitys;
 
 public class Professor {
     private String nome;
-    private String deparatamento;
+    private String departamento;
     private int matricula;
 
     // construtores
@@ -19,7 +19,7 @@ public class Professor {
         return matricula;
     }
     public String getDeparatamento() {
-        return deparatamento;
+        return departamento;
     }
 
 
@@ -31,6 +31,6 @@ public class Professor {
         this.matricula = matricula;
     }
     public void setDeparatamento(String deparatamento) {
-        this.deparatamento = deparatamento;
+        this.departamento = deparatamento;
     }
 }
