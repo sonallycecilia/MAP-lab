@@ -33,4 +33,10 @@ public class Aluno {
     public void setCra(double cra) {
         this.cra = cra;
     }
+
+    // métodos
+    @Override
+    public String toString() {
+        return "Nome: " + nome + "| Matricula: " + matricula + "| Cra: " + cra ;
+    }
 }

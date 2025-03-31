@@ -1,15 +1,15 @@
 import entitys.Aluno;
 import entitys.ControleAcademico;
+import entitys.Professor;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ProfessorTeste {
     @Test
-    public void criarAluno(){
+    public void cadastraProfessor() {
         ControleAcademico uepb = new ControleAcademico("UEPB", "Rua Barauna");
-        Aluno alunoTeste = uepb.cadastrarAluno("Sonally", 123321);
-        assertEquals(uepb.getAlunoPorMatricula(123321), alunoTeste);
-        uepb.getAlunoPorMatricula(123321);
+        Professor professorTeste = uepb.cadastrarProfessor("Sonally", 123321);
+        assertEquals(uepb.getProfessorPorMatricula(123321), professorTeste);
     }
 }

@@ -82,11 +82,15 @@ public class Turma {
         this.notas.put(aluno, boletim);
         return boletim;
     }
-
     public Boletim consultarNotas(Aluno aluno){
         if(!this.notas.containsKey(aluno)){
-            throw new ControleAcademicoExceptions("Aluno não esta matriculado!");
+            throw new ControleAcademicoException("Aluno não esta matriculado!");
         }
         return this.notas.get(aluno);
+    }
+    public void listarAlunos(){
+        for(Aluno aluno : this.alunosMatriculados){
+            System.out.println(aluno.toString());
+        }
     }
 }
