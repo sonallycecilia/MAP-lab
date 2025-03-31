@@ -21,9 +21,7 @@ public class TestQuadrado {
 
     @Test
     public void testQuadradoInvalido(){
-        Exception exception = assertThrows(FiguraGeometricaException.class, () -> {
-            new Quadrado(-1);
-        });
+        Exception exception = assertThrows(FiguraGeometricaException.class, () -> new Quadrado(-1));
         assertEquals("Dados negativos e/ou menor que 0!", exception.getMessage());
     }
 

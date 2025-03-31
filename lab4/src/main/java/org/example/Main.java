@@ -1,7 +1,6 @@
 package org.example;
 import org.example.figurasGeometricas.*;
 
-//TODO: adicionar o try_catch
 public class Main {
     public static void main(String[] args) {
 

@@ -21,9 +21,7 @@ public class TestCirculo {
 
     @Test
     public void testCirculoInvalido() {
-        Exception exception = assertThrows(FiguraGeometricaException.class, () -> {
-            new Circulo(-1);
-        });
+        Exception exception = assertThrows(FiguraGeometricaException.class, () -> new Circulo(-1));
         assertEquals("Dados negativos e/ou menor que 0!", exception.getMessage());
     }
 }

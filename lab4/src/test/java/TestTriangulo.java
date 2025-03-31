@@ -52,9 +52,7 @@ public class TestTriangulo {
 
     @Test
     public void testTrianguloInvalido() {
-        Exception exception = assertThrows(FiguraGeometricaException.class, () -> {
-            new Triangulo(1, 1, 5);
-        });
+        Exception exception = assertThrows(FiguraGeometricaException.class, () -> new Triangulo(1, 1, 5));
         assertEquals("Os lados fornecidos não formam um triângulo válido!", exception.getMessage());
     }
 }
