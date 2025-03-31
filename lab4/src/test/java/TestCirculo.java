@@ -18,4 +18,12 @@ public class TestCirculo {
         double perimetroEsperado = 2 * Math.PI * 5;
         assertEquals(perimetroEsperado, circulo.getPerimetro(), 0.0001);
     }
+
+    @Test
+    public void testCirculoInvalido() {
+        Exception exception = assertThrows(FiguraGeometricaException.class, () -> {
+            new Circulo(-1);
+        });
+        assertEquals("Dados negativos e/ou menor que 0!", exception.getMessage());
+    }
 }

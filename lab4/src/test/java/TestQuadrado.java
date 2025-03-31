@@ -1,4 +1,5 @@
 import org.example.figurasGeometricas.Quadrado;
+import org.example.figurasGeometricas.exceptions.FiguraGeometricaException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,4 +18,13 @@ public class TestQuadrado {
         double perimetroEsperado = 16.0;
         assertEquals(perimetroEsperado, quadrado.getPerimetro(), 0.0001);
     }
+
+    @Test
+    public void testQuadradoInvalido(){
+        Exception exception = assertThrows(FiguraGeometricaException.class, () -> {
+            new Quadrado(-1);
+        });
+        assertEquals("Dados negativos e/ou menor que 0!", exception.getMessage());
+    }
+
 }

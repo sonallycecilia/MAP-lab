@@ -1,4 +1,5 @@
 import org.example.figurasGeometricas.Triangulo;
+import org.example.figurasGeometricas.exceptions.FiguraGeometricaException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -47,5 +48,13 @@ public class TestTriangulo {
         Triangulo triangulo = new Triangulo(3, 4, 5);
         double perimetroEsperado = 12.0;
         assertEquals(perimetroEsperado, triangulo.getPerimetro(), 0.0001);
+    }
+
+    @Test
+    public void testTrianguloInvalido() {
+        Exception exception = assertThrows(FiguraGeometricaException.class, () -> {
+            new Triangulo(1, 1, 5);
+        });
+        assertEquals("Os lados fornecidos não formam um triângulo válido!", exception.getMessage());
     }
 }

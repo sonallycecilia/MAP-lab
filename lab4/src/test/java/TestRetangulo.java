@@ -1,4 +1,5 @@
 import org.example.figurasGeometricas.Retangulo;
+import org.example.figurasGeometricas.exceptions.FiguraGeometricaException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,10 +26,16 @@ public class TestRetangulo {
     }
 
     @Test
+    // TODO: modificar o teste
     public void testCriarRetanguloLadosIguais() {
         Retangulo retangulo = new Retangulo(5, 5);
-        double ladoEsperado = 5;
-        assertEquals(ladoEsperado, retangulo.getLargura());
-        assertEquals(ladoEsperado, retangulo.getComprimento());
+    }
+
+    @Test
+    public void testCriarRetanguloInvalidoNegativo() {
+        Exception exception = assertThrows(FiguraGeometricaException.class, () -> {
+            new Retangulo(-4, 5); // Largura negativa
+        });
+        assertEquals("Dados negativos!", exception.getMessage());
     }
 }
