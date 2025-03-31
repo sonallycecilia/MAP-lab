@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestRetangulo {
 
-
-
     @Test
     public void testArea() {
         Retangulo retangulo = new Retangulo(4, 5);
@@ -26,4 +24,11 @@ public class TestRetangulo {
         assertNotNull(retangulo, "O retângulo não deve ser nulo.");
     }
 
+    @Test
+    public void testCriarRetanguloLadosIguais() {
+        Retangulo retangulo = new Retangulo(5, 5);
+        double ladoEsperado = 5;
+        assertEquals(ladoEsperado, retangulo.getLargura());
+        assertEquals(ladoEsperado, retangulo.getComprimento());
+    }
 }
