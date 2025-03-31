@@ -70,6 +70,7 @@ public class Turma {
     }
 
     // metodos
+    //TODO: Adicionar as veificações, se o aluno já existe
     public boolean matricularAluno(Aluno aluno){
         return this.alunosMatriculados.add(aluno);
     }
