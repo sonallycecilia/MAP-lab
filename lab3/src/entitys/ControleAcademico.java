@@ -1,12 +1,9 @@
 package entitys;
 
-import utils.Boletim;
 import utils.Horario;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+
 
 public class ControleAcademico {
     private String nomeInstituicao;
@@ -96,9 +93,67 @@ public class ControleAcademico {
         return turma;
     }
 
+    //metodos de horario
+    public ArrayList<Horario> getHorariosProfessor(int matricula) {
+        ArrayList<Horario> horarios = new ArrayList<>();
+        for (Turma turma : turmas) {
+            if (turma.getProfessor().getMatricula() == matricula) {
+                horarios.add(turma.getHorario());
+            }
+        }
+        if (horarios.isEmpty()) {
+            throw new ControleAcademicoExceptions("Professor com matrícula " + matricula + " não leciona em nenhuma turma.");
+        }
+        return horarios;
+    }
+    public ArrayList<Horario> getHorariosAluno(int matricula) {
+        ArrayList<Horario> horarios = new ArrayList<>();
+        for (Turma turma : turmas) {
+            for (Aluno aluno : turma.getAlunosMatriculados()) {
+                if (aluno.getMatricula() == matricula) {
+                    horarios.add(turma.getHorario());
+                }
+            }
+        }
+        if (horarios.isEmpty()) {
+            throw new ControleAcademicoExceptions("Aluno com matrícula " + matricula + " não está matriculado em nenhuma turma.");
+        }
+        return horarios;
+    }
+    public ArrayList<Disciplina> getDisciplinasProfessor(int matricula) {
+        ArrayList<Disciplina> disciplinas = new ArrayList<>();
+        for (Turma turma : turmas) {
+            if (turma.getProfessor().getMatricula() == matricula) {
+                disciplinas.add(turma.getDisciplina());
+            }
+        }
+        if (disciplinas.isEmpty()) {
+            throw new ControleAcademicoExceptions("Professor com matrícula " + matricula + " não leciona nenhuma disciplina.");
+        }
+        return disciplinas;
+    }
+
+    public ArrayList<Disciplina> getDisciplinasAluno(int matricula) {
+        ArrayList<Disciplina> disciplinas = new ArrayList<>();
+        for (Turma turma : turmas) {
+            for (Aluno aluno : turma.getAlunosMatriculados()) {
+                if (aluno.getMatricula() == matricula) {
+                    disciplinas.add(turma.getDisciplina());
+                }
+            }
+        }
+        if (disciplinas.isEmpty()) {
+            throw new ControleAcademicoExceptions("Professor com matrícula " + matricula + " não leciona nenhuma disciplina.");
+        }
+        return disciplinas;
+    }
+
+
+
+    //metodos de filtro
     public Disciplina getDisciplinaPorID(int id) {
         for (Disciplina disciplina : disciplinas) {
-            if (Objects.equals(disciplina.getId(), id)) {
+            if (disciplina.getId() == id) {
                 return disciplina;
             }
         }
@@ -107,7 +162,7 @@ public class ControleAcademico {
 
     public Professor getProfessorPorMatricula(Integer matricula) {
         for (Professor professor : professores) {
-            if (Objects.equals(professor.getMatricula(), matricula)) {
+            if (professor.getMatricula() == matricula) {
                 return professor;
             }
         }
@@ -116,7 +171,7 @@ public class ControleAcademico {
 
     public Aluno getAlunoPorMatricula(int matricula) {
         for (Aluno aluno : alunos) {
-            if (Objects.equals(aluno.getMatricula(), matricula)) {
+            if (aluno.getMatricula() == matricula) {
                 return aluno;
             }
         }
@@ -125,7 +180,7 @@ public class ControleAcademico {
 
     public Turma getTurmaPorId(int id){
         for (Turma turma : turmas) {
-            if (Objects.equals(turma.getId(), id)) {
+            if (turma.getId() == id) {
                 return turma;
             }
         }

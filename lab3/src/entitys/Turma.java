@@ -4,6 +4,7 @@ import utils.Boletim;
 import utils.Horario;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Turma {
@@ -20,6 +21,7 @@ public class Turma {
         this.professor = professor;
         this.periodo = periodo;
         this.alunosMatriculados = new ArrayList<>();
+        this.notas = new HashMap<>();
         this.horario = horario;
         this.id = id;
     }
