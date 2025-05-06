@@ -43,11 +43,10 @@ public class Main {
         diretor1.atribuirFuncaoNoFilme(filme1, "Diretor");
         roteirista1.atribuirFuncaoNoFilme(filme1, "Roteirista");
         // b) Informar a filmografia indicando sua função específica
-        
-        IFuncionarioFilme funcionarioParaBuscarFilmografia = ator1;
-        System.out.println("--- Filmografia de " + funcionarioParaBuscarFilmografia.getNome() + " ---");
+
+        System.out.println("--- Filmografia de " + ator1.getNome() + " ---");
         for (AcessoFuncionarios acesso : acessos) {
-            if (acesso.getFuncionario().equals(funcionarioParaBuscarFilmografia)) {
+            if (acesso.getFuncionario().equals(ator1)) {
                 System.out.println("Filme: " + acesso.getFilme().getNome() + ", Função Específica: " + acesso.getFuncaoEspecifica());
             }
         }
