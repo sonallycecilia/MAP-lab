@@ -1,9 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
+
 
 import lab5.*;
 
@@ -67,6 +65,9 @@ public class Testes {
         assertNull(acesso.getFuncaoEspecifica());
     }
 
+    @Test
+    public void testInformarCaracteristicasFilme() {
 
+    }
 }
 
