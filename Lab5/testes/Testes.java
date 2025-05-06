@@ -24,7 +24,7 @@ public class Testes {
         ator = new Ator("Julia", "julia@gmail.com", 003);
         cinegrafista = new Cinegrafista("Sabrina", "sabrina@gmail.com", 005);
         camera = new Camera("joao", "joao@gmail.com", 006);
-        filme = new Filme("V de Vingaca",2005, null, null);
+        filme = new Filme("V de Vinganca",2005, null, null);
     }
 
     @Test
@@ -44,5 +44,29 @@ public class Testes {
         assertNull(filme.getRoteirista());
         assertEquals(new ArrayList<>(), filme.getElenco());
     }
+
+    @Test
+    public void testInformarFilmografia() {
+        filme.setDiretor(diretor);
+        filme.setRoteirista(roteirista);
+        filme.adicionarAtor(ator);
+        ator.atribuirFuncaoNoFilme(filme, "Ator");
+        acesso = new AcessoFuncionarios(ator, filme, "Ator");
+        assertEquals("V de Vingaca", acesso.getFilme().getNome());
+        assertEquals("Ator", acesso.getFuncaoEspecifica());
+    }
+
+    @Test
+    public void testInformarFilmografiaVazia() {
+        filme.setDiretor(diretor);
+        filme.setRoteirista(roteirista);
+        filme.adicionarAtor(ator);
+        acesso = new AcessoFuncionarios(ator, null, null);
+
+        assertNull(acesso.getFilme());
+        assertNull(acesso.getFuncaoEspecifica());
+    }
+
+
 }
 
