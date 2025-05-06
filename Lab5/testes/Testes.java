@@ -67,7 +67,20 @@ public class Testes {
 
     @Test
     public void testInformarCaracteristicasFilme() {
+        filme.setDiretor(diretor);
+        filme.setRoteirista(roteirista);
+        filme.adicionarAtor(ator);
 
+        assertEquals("--- Informações do Filme ---\n" +
+                              "Nome: V de Vinganca\n" +
+                              "Ano: 2005\n" +
+                              "Diretor: Sonally\n" +
+                              "Roteirista: Thales\n" +
+                              "Elenco:\n" +
+                              "- Julia\n" +
+                              "Trilha Sonora:\n" +
+                              "Nenhuma música cadastrada.\n" +
+                              "----------------------------", filme.toString());
     }
 }
 
