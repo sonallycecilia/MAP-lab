@@ -54,8 +54,7 @@ public class Main {
 
         // c) Informar todas as características de um dado filme
 
-        Filme filmeParaInformar = filme1;
-        System.out.println("--- Características do Filme: " + filmeParaInformar.getNome() + " ---");
-        System.out.println(filmeParaInformar);
+        System.out.println("--- Características do Filme: " + filme1.getNome() + " ---");
+        System.out.println(filme1);
     }
 }
