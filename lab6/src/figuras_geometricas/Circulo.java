@@ -20,8 +20,12 @@ public class Circulo {
         return raio;
     }
 
-    public void setRaio(double raio) {
-        this.raio = raio;
+    public void setRaio(double raio) throws IllegalArgumentException {
+        if (raio > 0) {
+            this.raio = raio;
+        } else
+            throw new IllegalArgumentException("O raio deve ser maior que 0");
+
     }
 
     public double getArea() {
