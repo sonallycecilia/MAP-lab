@@ -6,9 +6,13 @@ public class Circulo {
     private double raio;
 
     private Circulo() {
-        
+
     }
-    
+
+    private Circulo(double raio) {
+        this.raio = raio;
+    }
+
     public Circulo getInstance(){
         if(circulo == null){
             circulo = new Circulo();
