@@ -19,6 +19,7 @@ public class Circulo {
         }
         return circulo;
     }
+    //TODO: permitir instanciar circulo com o raio
 
     public double getRaio() {
         return raio;
