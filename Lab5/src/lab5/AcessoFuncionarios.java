@@ -1,6 +1,6 @@
 package lab5;
 
-public class AcessoFuncionarios {
+public class AcessoFuncionarios { //testes
 	private Funcionario funcionario;
 	private Filme filme;
 	private String funcaoEspecifica;
