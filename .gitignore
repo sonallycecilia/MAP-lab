@@ -1,5 +1,7 @@
 ### IntelliJ IDEA ###
 .idea
+\target
+\*.class
 *.iml
 out/
 !**/src/main/**/out/
