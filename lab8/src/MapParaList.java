@@ -67,11 +67,24 @@ public class MapParaList<j, p> implements Map<j, p>{
 	public boolean isEmpty() {
 		return listaInterna.isEmpty();
 	}
-	
+
 	public p put(j key, p value) {
+		p oldValue = null;
+
+		Iterator<Pair<j, p>> iterator = listaInterna.iterator();
+		while (iterator.hasNext() && oldValue == null) {
+			Pair<j, p> pair = iterator.next();
+			if (pair.getKey().equals(key)) {
+				oldValue = pair.getValue();
+				iterator.remove();
+				break;
+			}
+		}
+
 		listaInterna.add(new Pair<>(key, value));
-        // Como List não retorna o valor antigo associado à chave, retornamos null
-        return null;
+
+		// Como List não retorna o valor antigo associado à chave, retornamos null
+		return null;
 	}
 	
 	public p remove(Object key) {
