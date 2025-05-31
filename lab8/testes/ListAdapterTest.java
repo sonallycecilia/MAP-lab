@@ -2,7 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.util.*;
-import java.util.AbstractMap.SimpleEntry; // Necessário para Map.Entry para equals/hashCode
+import java.util.AbstractMap.SimpleEntry;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,9 +14,9 @@ public class ListAdapterTest {
     void setUp() {
         mapLista = new ListAdapter<>();
         mapLista.put("Julia", 20);
-        mapLista.put("Maria", 10);
-        mapLista.put("João", 25);
-        mapLista.put("Marcos", 30);
+        mapLista.put("Sonally", 10);
+        mapLista.put("Thales", 25);
+        mapLista.put("Sabrina", 30);
     }
 
     @Test
@@ -57,7 +57,7 @@ public class ListAdapterTest {
     @DisplayName("Testar get: chave existente")
     void testGetChaveExistente() {
         assertEquals(20, mapLista.get("Julia"));
-        assertEquals(10, mapLista.get("Maria"));
+        assertEquals(10, mapLista.get("Sonally"));
     }
 
     @Test
@@ -69,11 +69,11 @@ public class ListAdapterTest {
     @Test
     @DisplayName("Testar remove por chave com chave existente")
     void testRemoveChaveExistente() {
-        Integer removedValue = mapLista.remove("Maria");
+        Integer removedValue = mapLista.remove("Sonally");
         assertEquals(10, removedValue);
         assertEquals(3, mapLista.size());
-        assertFalse(mapLista.containsKey("Maria"));
-        assertNull(mapLista.get("Maria"));
+        assertFalse(mapLista.containsKey("Sonally"));
+        assertNull(mapLista.get("Sonally"));
 
     }
 
@@ -87,7 +87,7 @@ public class ListAdapterTest {
     @Test
     @DisplayName("Testar containsKey e containsValue")
     void testContains() {
-        assertTrue(mapLista.containsKey("João"));
+        assertTrue(mapLista.containsKey("Thales"));
         assertFalse(mapLista.containsKey("José"));
 
         assertTrue(mapLista.containsValue(30));
@@ -121,9 +121,9 @@ public class ListAdapterTest {
         Set<String> keys = mapLista.keySet();
         assertEquals(4, keys.size());
         assertTrue(keys.contains("Julia"));
-        assertTrue(keys.contains("Maria"));
-        assertTrue(keys.contains("João"));
-        assertTrue(keys.contains("Marcos"));
+        assertTrue(keys.contains("Sonally"));
+        assertTrue(keys.contains("Thales"));
+        assertTrue(keys.contains("Sabrina"));
         assertFalse(keys.contains("Carlos"));
     }
 
@@ -133,8 +133,8 @@ public class ListAdapterTest {
         Set<Map.Entry<String, Integer>> entries = mapLista.entrySet();
         assertEquals(4, entries.size());
         assertTrue(entries.contains(new SimpleEntry<>("Julia", 20)));
-        assertTrue(entries.contains(new SimpleEntry<>("Marcos", 30)));
-        assertFalse(entries.contains(new SimpleEntry<>("João", 99))); // Valor errado
+        assertTrue(entries.contains(new SimpleEntry<>("Sabrina", 30)));
+        assertFalse(entries.contains(new SimpleEntry<>("Thales", 99)));
     }
 
     @Test
@@ -142,12 +142,12 @@ public class ListAdapterTest {
     void testPutAll() {
         Map<String, Integer> newMap = new HashMap<>();
         newMap.put("Lucas", 40);
-        newMap.put("Maria", 12); // Substitui existente
+        newMap.put("Sonally", 12);
         mapLista.putAll(newMap);
 
         assertEquals(5, mapLista.size());
         assertTrue(mapLista.containsKey("Lucas"));
-        assertEquals(12, mapLista.get("Maria"));
+        assertEquals(12, mapLista.get("Sonally"));
     }
 
 }
