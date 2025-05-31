@@ -1,4 +1,4 @@
-package figuras_geometricas;
+package org.example.figuras_geometricas;
 
 public class Quadrado {
 
