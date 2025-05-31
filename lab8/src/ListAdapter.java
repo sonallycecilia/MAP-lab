@@ -72,7 +72,7 @@ public class ListAdapter<j, p> implements Map<j, p>{
 		p oldValue = null;
 
 		Iterator<Pair<j, p>> iterator = listaInterna.iterator();
-		while (iterator.hasNext() && oldValue == null) {
+		while (iterator.hasNext()) {
 			Pair<j, p> pair = iterator.next();
 			if (pair.getKey().equals(key)) {
 				oldValue = pair.getValue();
