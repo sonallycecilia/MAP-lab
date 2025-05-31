@@ -1,10 +1,10 @@
 public class Cliente {
 
 	public static void main(String[] args) {
-		MapParaList<String, Integer> mapLista = new MapParaList<>();
-		ListaParaMap<Integer, String> listaMap = new ListaParaMap<>();
+		MapComoList<String, Integer> mapLista = new MapComoList<>();
+		ListComoMap<Integer, String> listaMap = new ListComoMap<>();
 		
-		// MapParaList - Map disfarçado de List
+		// MapComoList - Map disfarçado de List
 		
 		mapLista.put("Julia", 20);
 		mapLista.put("Maria", 10);
@@ -24,7 +24,7 @@ public class Cliente {
         System.out.println("Após clear, está vazio? " + mapLista.isEmpty());
         System.out.println();
 
-        // ListaParaMap - List disfarçado de Map
+        // ListComoMap - List disfarçado de Map
         listaMap.add("maçã");
         listaMap.add("banana");
         listaMap.add("laranja");
