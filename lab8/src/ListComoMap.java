@@ -1,9 +1,9 @@
 import java.util.*;
 
-public class ListaParaMap<J, P> implements List<P> {
+public class ListComoMap<J, P> implements List<P> {
     private final Map<Integer, P> internalMap; // índice = chave, para simular a List
 
-    public ListaParaMap() {
+    public ListComoMap() {
         this.internalMap = new HashMap<>();
     }
     
@@ -50,16 +50,34 @@ public class ListaParaMap<J, P> implements List<P> {
     public Iterator<P> iterator() {
         return new ValueIterator();
     }
-    
-    public boolean remove(Object o) {
-        for (Map.Entry<Integer, P> entry : internalMap.entrySet()) {
-            if (Objects.equals(entry.getValue(), o)) {
-                internalMap.remove(entry.getKey());
-                return true;
-            }
-        }
-        return false;
-    }
+
+	public boolean remove(Object o) {
+		int indexToRemove = -1;
+
+		for (Map.Entry<Integer, P> entry : internalMap.entrySet()) {
+			if (Objects.equals(entry.getValue(), o)) {
+				indexToRemove = entry.getKey();
+				break;
+			}
+		}
+
+		if (indexToRemove != -1) {
+			List<P> tempList = new ArrayList<>();
+			for (int i = 0; i < internalMap.size(); i++) {
+				if (i != indexToRemove) {
+					tempList.add(internalMap.get(i));
+				}
+			}
+
+			internalMap.clear();
+
+			for (int i = 0; i < tempList.size(); i++) {
+				internalMap.put(i, tempList.get(i));
+			}
+			return true;
+		}
+		return false;
+	}
 
     public int size() {
         return internalMap.size();
@@ -160,7 +178,7 @@ public class ListaParaMap<J, P> implements List<P> {
 	public List<P> subList(int fromIndex, int toIndex) {
 		throw new UnsupportedOperationException("listIterator() não faz sentido para esta adaptação direta de Map para List.");
 	}
-	
+
 	 private class ValueIterator implements Iterator<P> {
 	        private final Iterator<P> valueIterator = internalMap.values().iterator();
 
