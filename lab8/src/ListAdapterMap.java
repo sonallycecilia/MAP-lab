@@ -1,11 +1,11 @@
 import java.util.*;
 
-public class ListAdapter<j, p> implements Map<j, p>{
+public class ListAdapterMap<j, p> implements Map<j, p>{
 	// j= Keys; p=Values
 	private final List<p> list;
 	private final List<Pair<j, p>> listaInterna;
 	
-	public ListAdapter() {
+	public ListAdapterMap() {
 		this.list = new ArrayList<>();
 		this.listaInterna = new ArrayList<>();
 	}

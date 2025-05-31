@@ -1,10 +1,10 @@
 public class Cliente {
 
 	public static void main(String[] args) {
-		ListAdapter<String, Integer> mapLista = new ListAdapter<>();
-		MapAdapter<Integer, String> listaMap = new MapAdapter<>();
+		ListAdapterMap<String, Integer> mapLista = new ListAdapterMap<>();
+		MapAdapterList<Integer, String> listaMap = new MapAdapterList<>();
 		
-		// ListAdapter - Map disfarçado de List
+		// ListAdapterMap - Map disfarçado de List
 		
 		mapLista.put("Julia", 20);
 		mapLista.put("Maria", 10);
@@ -24,7 +24,7 @@ public class Cliente {
         System.out.println("Após clear, está vazio? " + mapLista.isEmpty());
         System.out.println();
 
-        // MapAdapter - List disfarçado de Map
+        // MapAdapterList - List disfarçado de Map
         listaMap.add("maçã");
         listaMap.add("banana");
         listaMap.add("laranja");
