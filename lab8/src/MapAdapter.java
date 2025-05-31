@@ -1,9 +1,9 @@
 import java.util.*;
 
-public class ListComoMap<J, P> implements List<P> {
+public class MapAdapter<J, P> implements List<P> {
     private final Map<Integer, P> internalMap; // índice = chave, para simular a List
 
-    public ListComoMap() {
+    public MapAdapter() {
         this.internalMap = new HashMap<>();
     }
     

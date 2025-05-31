@@ -1,11 +1,11 @@
 import java.util.*;
 
-public class MapComoList<j, p> implements Map<j, p>{
+public class ListAdapter<j, p> implements Map<j, p>{
 	// j= Keys; p=Values
 	private final List<p> list;
 	private final List<Pair<j, p>> listaInterna;
 	
-	public MapComoList() {
+	public ListAdapter() {
 		this.list = new ArrayList<>();
 		this.listaInterna = new ArrayList<>();
 	}
