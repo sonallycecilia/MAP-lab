@@ -137,8 +137,25 @@ public class MapAdapter<J, P> implements List<P> {
 
 	@Override
 	public P remove(int index) {
-		P removedValue = internalMap.remove(index);
-        return removedValue;
+		if (index < 0 || index >= internalMap.size()) {
+			throw new IndexOutOfBoundsException("indice: " + index + ", Tamanho: " + internalMap.size());
+		}
+
+		P removedValue = internalMap.get(index);
+
+		List<P> tempList = new ArrayList<>();
+		for (int i = 0; i < internalMap.size(); i++) {
+			if (i != index) {
+				tempList.add(internalMap.get(i));
+			}
+		}
+
+		internalMap.clear();
+
+		for (int i = 0; i < tempList.size(); i++) {
+			internalMap.put(i, tempList.get(i));
+		}
+		return removedValue;
 	}
 
 	@Override
