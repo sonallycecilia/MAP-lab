@@ -1,9 +1,9 @@
 import java.util.*;
 
-public class MapAdapterList<J, P> implements List<P> {
+public class ListaParaMap<J, P> implements List<P> {
     private final Map<Integer, P> internalMap; // índice = chave, para simular a List
 
-    public MapAdapterList() {
+    public ListaParaMap() {
         this.internalMap = new HashMap<>();
     }
     
