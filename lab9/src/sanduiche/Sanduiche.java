@@ -1,6 +1,8 @@
-package elementos_sanduiche;
+package sanduiche;
 
-public class Sanduiche implements ElementoSanduiche{
+import elementos_sanduiche.ElementoSanduiche;
+
+public class Sanduiche implements ElementoSanduiche {
     private String tipo;
 
     @Override
