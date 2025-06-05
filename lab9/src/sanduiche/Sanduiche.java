@@ -2,15 +2,18 @@ package sanduiche;
 
 import elementos_sanduiche.ElementoSanduiche;
 
-public class Sanduiche implements ElementoSanduiche {
-    private String tipo;
+public class Sanduiche {
+    private String nome;
 
-    @Override
-    public String getTipo() {
-        return this.tipo;
+    public Sanduiche(String nome) {
+        this.nome = nome;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public String getTipo() {
+        return this.nome;
+    }
+
+    public void setTipo(String nome) {
+        this.nome = nome;
     }
 }
