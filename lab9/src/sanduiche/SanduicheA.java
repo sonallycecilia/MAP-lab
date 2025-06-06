@@ -1,17 +1,37 @@
 package sanduiche;
 
-public class SanduicheA {
-    private String nome;
+import elementos_sanduiche.ovo.Ovo;
+import elementos_sanduiche.ovo.OvoCapoeira;
+import elementos_sanduiche.pao.Pao;
+import elementos_sanduiche.pao.PaoBola;
+import elementos_sanduiche.presunto.Presunto;
+import elementos_sanduiche.presunto.PresuntoFrango;
+import elementos_sanduiche.queijo.Queijo;
+import elementos_sanduiche.queijo.QueijoCheddar;
+import elementos_sanduiche.queijo.QueijoPrato;
 
-    public SanduicheA(String nome) {
-        this.nome = nome;
+public class SanduicheA extends Sanduiche{
+    public SanduicheA() {
+        super();
     }
 
-    public String getTipo() {
-        return this.nome;
+    @Override
+    public Pao adicionarPao(){
+        return new PaoBola();
     }
 
-    public void setTipo(String nome) {
-        this.nome = nome;
+    @Override
+    public Queijo adicionarQueijo(){
+        return new QueijoCheddar();
+    }
+
+    @Override
+    public Presunto adicionarPresunto(){
+        return new PresuntoFrango();
+    }
+
+    @Override
+    public Ovo adicionarOvo(){
+        return new OvoCapoeira();
     }
 }
