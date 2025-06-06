@@ -2,39 +2,35 @@ package sanduiche;
 
 import elementos_sanduiche.ovo.Ovo;
 import elementos_sanduiche.ovo.OvoCapoeira;
-import elementos_sanduiche.ovo.OvoGranja;
 import elementos_sanduiche.pao.Pao;
 import elementos_sanduiche.pao.PaoBola;
-import elementos_sanduiche.pao.PaoFrances;
 import elementos_sanduiche.presunto.Presunto;
 import elementos_sanduiche.presunto.PresuntoFrango;
-import elementos_sanduiche.presunto.PresuntoPeru;
 import elementos_sanduiche.queijo.Queijo;
 import elementos_sanduiche.queijo.QueijoCheddar;
-import elementos_sanduiche.queijo.QueijoMussarela;
 
-public class SanduicheB extends Sanduiche{
-    public SanduicheB(){
+public class SanduicheA extends Sanduiche{
+    public SanduicheA() {
         super();
     }
 
     @Override
     public Pao adicionarPao(){
-        return new PaoFrances();
+        return new PaoBola();
     }
 
     @Override
     public Queijo adicionarQueijo(){
-        return new QueijoMussarela();
+        return new QueijoCheddar();
     }
 
     @Override
     public Presunto adicionarPresunto(){
-        return new PresuntoPeru();
+        return new PresuntoFrango();
     }
 
     @Override
     public Ovo adicionarOvo(){
-        return new OvoGranja();
+        return new OvoCapoeira();
     }
 }

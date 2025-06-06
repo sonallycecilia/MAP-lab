@@ -1,6 +1,5 @@
 package sanduiche;
 
-import elementos_sanduiche.ElementoSanduiche;
 import elementos_sanduiche.Tomate;
 import elementos_sanduiche.ovo.Ovo;
 import elementos_sanduiche.pao.Pao;
@@ -45,13 +44,34 @@ public class Sanduiche {
 
     @Override
     public String toString() {
-        return "Sanduiche {" +
-                "pao = " + pao +
-                ", queijo = " + queijo +
-                ", presunto = " + presunto +
-                ", ovo = " + ovo +
-                ", tomate = " + tomate +
-                '}';
+         StringBuilder sb = new StringBuilder("Sanduiche {");
+        sb.append("pao = ").append(pao != null ? pao.toString() : "N/A");
+        sb.append(", queijo = ").append(queijo != null ? queijo.toString() : "N/A");
+        sb.append(", presunto = ").append(presunto != null ? presunto.toString() : "N/A");
+        sb.append(", ovo = ").append(ovo != null ? ovo.toString() : "N/A");
+        sb.append(", tomate = ").append(tomate != null ? tomate.toString() : "N/A"); // Lida com tomate nulo
+        sb.append('}');
+    return sb.toString();
+    }
+
+    public Pao getPao() {
+        return pao;
+    }
+
+    public Queijo getQueijo() {
+        return queijo;
+    }
+
+    public Presunto getPresunto() {
+        return presunto;
+    }
+
+    public Ovo getOvo() {
+        return ovo;
+    }
+
+    public Tomate getTomate() {
+        return tomate;
     }
 }
 

@@ -1,3 +1,5 @@
+package main;
+
 import sanduiche.Sanduiche;
 import sanduiche.SanduicheA;
 import sanduiche.SanduicheB;
