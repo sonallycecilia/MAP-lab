@@ -45,12 +45,12 @@ public class Sanduiche {
 
     @Override
     public String toString() {
-        return "Sanduiche{" +
-                "pao=" + pao +
-                ", queijo=" + queijo +
-                ", presunto=" + presunto +
-                ", ovo=" + ovo +
-                ", tomate=" + tomate +
+        return "Sanduiche {" +
+                "pao = " + pao +
+                ", queijo = " + queijo +
+                ", presunto = " + presunto +
+                ", ovo = " + ovo +
+                ", tomate = " + tomate +
                 '}';
     }
 }
