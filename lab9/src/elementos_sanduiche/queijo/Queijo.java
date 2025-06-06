@@ -1,6 +1,8 @@
-package elementos_sanduiche;
+package elementos_sanduiche.queijo;
 
-public class Queijo implements ElementoSanduiche{
+import elementos_sanduiche.ElementoSanduiche;
+
+public class Queijo implements ElementoSanduiche {
     private String tipo;
 
     public Queijo(String tipo) {

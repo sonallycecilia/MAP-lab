@@ -1,11 +1,9 @@
 package sanduiche;
 
-import elementos_sanduiche.ElementoSanduiche;
-
-public class Sanduiche {
+public class SanduicheA {
     private String nome;
 
-    public Sanduiche(String nome) {
+    public SanduicheA(String nome) {
         this.nome = nome;
     }
 

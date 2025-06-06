@@ -1,9 +1,11 @@
-package elementos_sanduiche;
+package elementos_sanduiche.ovo;
 
-public class Presunto implements ElementoSanduiche{
-    private String tipo ;
+import elementos_sanduiche.ElementoSanduiche;
 
-    public Presunto(String tipo) {
+public class Ovo implements ElementoSanduiche {
+    private String tipo;
+
+    public Ovo(String tipo) {
         this.tipo = tipo;
     }
 
